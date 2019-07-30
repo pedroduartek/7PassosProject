@@ -1,0 +1,437 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('/images/background.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: url(../cursor/espada.cur),default;
+}
+
+/*Queria ver se dava pare reduzir a repetição do cursor, mas acho que isto é o minimo que se pode ter (body,label,button,a:hover)*/
+
+label {
+    cursor: url(../cursor/espada.cur),default;
+}
+
+button {
+    cursor: url(../cursor/espada.cur),default;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: url(../cursor/espada.cur),default;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+/*CSS DO MINECRAFT*/
+
+.botaoMinecraft {
+    height: 40px;
+    width: 400px;
+    outline: 2px solid black;
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+    background-image: url('http://charliecowan.co.uk/mcbuttongenerator/button_center.png');
+    background-repeat: repeat;
+    padding: 5px 0px 0px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px #4C4C4C;
+    border-bottom: 4px solid #565656;
+    border-right: 2px solid #565656;
+    border-left: 2px solid #AAA;
+    border-top: 2px solid #AAA;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+    .botaoMinecraft span {
+        position: relative;
+        line-height: 40px;
+        bottom: 2px;
+    }
+
+    .botaoMinecraft:hover {
+        border-bottom: 4px solid #59639A;
+        border-right: 2px solid #59639A;
+        border-left: 2px solid #BDC6FF;
+        border-top: 2px solid #BDC6FF;
+        background-image: url('http://charliecowan.co.uk/mcbuttongenerator/button_active_center.png');
+        color: #FFFFA0;
+    }
+
+    .botaoMinecraft.controlos {
+        width: 100px;
+    }
+
+        .botaoMinecraft.controlos.desistir {
+            background-image: url('https://puu.sh/DqldU/d3d2c271cd.png');
+            border-bottom: 4px solid #663636;
+            border-right: 2px solid #663636;
+            border-left: 2px solid #aa5c5c;
+            border-top: 2px solid #aa5c5c;
+            text-shadow: none;
+            right: 7%;
+            margin-top: 40px;
+        }
+
+
+table {
+    background-color: white;
+    color: black;
+}
+
+    table thead {
+        background-color: black;
+        color: white;
+    }
+
+.coracao {
+    width: 40px;
+}
+
+.forca {
+    width: 40px;
+}
+
+.trevo {
+    width: 40px;
+}
+
+.moedas {
+    width: 45px;
+    height: 45px;
+}
+
+.pocao {
+    padding-top: 5px;
+    width: 40px;
+}
+
+.chave {
+    padding-top: 40px;
+    width: 90px;
+    position: absolute;
+    top: -3%;
+    left: 5%;
+    z-index: 2;
+}
+
+
+.nick {
+    position: relative;
+    bottom: 300px;
+    right: 50px;
+    font-size: 20px;
+}
+
+
+.jogo {
+    position: relative;
+    width: 950px;
+    z-index: 1;
+}
+
+.centroJogo {
+    position: absolute;
+    width: 150px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.ataque {
+    width: 250px;
+    z-index: 3;
+}
+
+.stats {
+    position: relative;
+}
+
+.statsinimigo {
+    position: relative;
+    left: 25%;
+    z-index: 3;
+}
+
+.atributos {
+    width: 30px;
+}
+
+.caractesquerda {
+    position: absolute;
+    top: 77%;
+    left: 8%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+
+.pontos {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-weight: bold;
+    font-size: 17px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.pontosinimigo {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-weight: bold;
+    font-size: 17px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+.semScrolleBordas {
+    overflow: hidden;
+    overflow: no-display;
+    padding: 0;
+    margin: 0;
+}
+
+.danoRecebido {
+    color: red;
+    position: absolute;
+    font-size: 30px;
+    top: 56%;
+    left: 10%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.efeitoVida {
+    color: green;
+    position: absolute;
+    font-size: 30px;
+    top: 49%;
+    left: 6.5%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.efeitoForca {
+    color: green;
+    position: absolute;
+    font-size: 30px;
+    top: 65%;
+    left: 10%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.negativo {
+    color: red;
+}
+
+.efeitoSorte {
+    color: green;
+    position: absolute;
+    font-size: 30px;
+    top: 72%;
+    left: 10%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+    .efeitoSorte.negativo {
+        color: red;
+    }
+
+.moedasRecebidas {
+    color: gold;
+    position: absolute;
+    font-size: 30px;
+    top: 81%;
+    left: 10%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.pocaoRecebida {
+    color: red;
+    position: absolute;
+    font-size: 30px;
+    top: 91%;
+    left: 10%;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.acoes {
+    margin-left: 16px;
+}
+
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+    [type=radio]:checked + img {
+        opacity: 1;
+    }
+
+.heroiOpaco {
+    opacity: 0.4;
+    width: 125px;
+}
+
+.modoOpaco {
+    opacity: 0.4;
+    width: 180px;
+}
+
+.textoCinza {
+    color: grey;
+}
+
+.textoPreto {
+    color: black;
+}
+
+.carouselFormat {
+    width: 349px;
+    height: 349px;
+    margin: auto;
+}
+
+.textoDimGrey {
+    color: dimgrey;
+}
+
+.imagemCarousel {
+    width: 349px;
+    height: 349px;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+    margin-left: -40px
+}
+
+.musicadefundo {
+    width: 854px;
+    height: 480px;
+    display: none;
+}
+
+
+.classe {
+    position: relative;
+    width: 120px;
+    right: 20%;
+}
+
+.carahiscores {
+    position: relative;
+    width: 100px;
+}
+
+.pocaoEncontrada {
+    width: 50px;
+    z-index: 3;
+    position: relative;
+    left: 80%;
+}
+
+.ouroEncontrado {
+    width: 70px;
+    z-index: 3;
+    position: relative;
+    left: 110%;
+}
+
+.chaveEncontrada {
+    width: 50px;
+    z-index: 3;
+    position: relative;
+    left: 30%;
+}
+
+.macaSurpresaEncontrada {
+    width: 80px;
+    z-index: 3;
+    position: relative;
+    left: -80%;
+}
+
+.monstro {
+    width: 400px;
+    left: 30%;
+}
+
+.cansado {
+    width: 100px;
+    z-index: 3;
+    top: 5%;
+}
+
+.imagemPerfil {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.contorno {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.apresentacao {
+    font-size: 18px;
+}
+
+
+.imagemPerfilProjeto {
+    width: 300px;
+}
+
+.tituloProjeto {
+    text-align: left;
+    font-size: 60px;
+}

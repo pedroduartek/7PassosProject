@@ -1,0 +1,99 @@
+﻿@model Tentativa
+@{
+    ViewData["Title"] = "Jogo Autonomo Finalizado ";
+}
+
+<h1 class="text-center">Game Over</h1>
+@if (Model.Resultado != Result.SuccessVictory)
+{
+    @: <h2>Não consegiu vencer o jogo, tente outra vez!</h2>
+}
+
+<table class="table table-condensed">
+    <tr class=" text-center">
+        <th>ID do Jogo</th>
+        <th>Rondas Jogadas</th>
+        <th>Score Final</th>
+        <th>Resultado</th>
+        <th>Chave</th>
+        <th>Nº de Passos</th>
+        <th>Nº Pesquisas</th>
+        <th>Poções Consumidas</th>
+        <th>Nº Ataques</th>
+        <th>Nº de Fugas do Inimgo</th>
+        <th>Nº de inimigos derrotados</th>
+        <th>Nº de itens encontrados</th>
+        <th>% Areas Investigadas</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Ronda</td>
+        <td>@Model.MoedasDeOuro</td>
+        @if (Model.Resultado == Result.SuccessVictory)
+        {
+            @:<td>Venceu</td>
+        }
+        else
+        {
+            @:<td>Perdeu</td>
+        }
+        <td>@Model.ChaveNoBolso</td>
+        <td>@Model.ContadorMovimentos</td>
+        <td>@Model.ContadorPesquisas</td>
+        <td>@Model.PocoesUsadas</td>
+        <td>@Model.ContadorAtaques</td>
+        <td>@Model.InimigosFintados</td>
+        <td>@Model.InimigosDerrotados</td>
+        <td>@Model.ContadorItensEncontrados</td>
+        <td>@Model.PercetagemAreaInvestigada</td>
+
+    </tr>
+</table>
+
+<h2>Resultado da Ronda</h2>
+
+<table class="table table-condensed">
+    <tr>
+        <th>Numero da Ronda</th>
+        <th>Decisão Tomada</th>
+        <th>Resultado</th>
+        <th>Posicao</th>
+        <th>Total Inimigos Vencidos</th>
+        <th>Total Fugas</th>
+        <th>Total Itens Encontrados</th>
+        <th>Chave</th>
+        <th>Pontos de Vida</th>
+        <th>Pontos de Ataque</th>
+        <th>Pontos de Sorte</th>
+        <th>Poções de Vida</th>
+    </tr>
+
+    @foreach (RoundSummary rs in Model.Rs)
+    {
+        <tr>
+            <td>@rs.NumeroDaRonda</td>
+            <td>@rs.DecisaoTomada</td>
+            <td>@rs.Resultado</td>
+            @if (@rs.PosicaoNoFinalDaRonda == 8)
+            {
+                @:<td>Atravessou a porta</td>
+            }
+            else
+            {
+                <td>@rs.PosicaoNoFinalDaRonda</td>
+            }
+            <td>@rs.TotalAcumuladoDeInimigosVencidos</td>
+            <td>@rs.TotalAcumuladoDefugasAoCombate</td>
+            <td>@rs.TotalAcumuladoDeItensEncontrados</td>
+            <td>@rs.PosseDaChave</td>
+            <td>@rs.PontosDeVida</td>
+            <td>@rs.PontosDeAtaque</td>
+            <td>@rs.PontosDeSorte</td>
+            <td>@rs.PocoesDeVida</td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Hiscores" asp-controller="Home" class="botaoMinecraft">HISCORES</a>
+<a asp-action="Index" asp-controller="Jogo" class="botaoMinecraft">NOVO JOGO</a>
+

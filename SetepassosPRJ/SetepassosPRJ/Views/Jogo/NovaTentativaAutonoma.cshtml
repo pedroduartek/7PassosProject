@@ -1,0 +1,50 @@
+﻿@model SetepassosPRJ.Models.Tentativa
+@{
+    ViewData["Title"] = "Escolha da Personagem";
+}
+<form method="post" asp-action="NovaTentativaAutonomaAsync">
+    <div asp-validation-summary="All"></div>
+    <h2 class="contorno">O heroi do modo autónomo é obrigatóriamente o seguinte:</h2>
+
+    <div class="form-group">
+        <label>
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <br />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <br />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <br />
+            <input type="radio" name="classe" value="B" checked="checked" />
+            <img class="heroiOpaco" src="~/images/skinpereira.png" alt="Skin Do Pereira" />
+
+        </label>
+        <br />
+        <h1 class="contorno">Escolha o modo de Jogo:</h1>
+
+        <label>
+            <input type="radio" name="Nickname" value="auto3" checked="checked" />
+            <img class="modoOpaco" src="~/images/3rondas.png" alt="3 Rondas" />
+
+        </label>
+
+        <label>
+            <input type="radio" name="Nickname" value="auto7" />
+            <img class="modoOpaco" src="~/images/7rondas.png" alt="7 Rondas" />
+        </label>
+
+        <label>
+            <input type="radio" name="Nickname" value="auto0" />
+            <img class="modoOpaco" src="~/images/SemMedo.png" alt="Sem Medos" />
+        </label>
+        <br />
+        <button type="submit" class="botaoMinecraft">NOVO JOGO</button>
+    </div>
+</form>
+
+<a asp-action="Index" class="botaoMinecraft">VOLTAR</a>

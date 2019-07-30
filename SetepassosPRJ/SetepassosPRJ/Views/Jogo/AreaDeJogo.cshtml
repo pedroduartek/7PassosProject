@@ -1,0 +1,211 @@
+﻿@model Tentativa
+@{
+    ViewData["Title"] = "Área de Jogo";
+}
+<div class="semScroll&Bordas">
+    <div class="row">
+        <div class="col-md-1">
+            <div class="row">
+                <p><strong>Nickname:</strong> @Model.Nickname</p>
+                <p><strong>ID:</strong> @Model.Id</p>
+                <p><strong>Round:</strong>@Model.Ronda</p> @*so para fazer testes no algoritmo, depois tiro*@
+                <p><strong>Classe:</strong> @Model.NomeDaClasse</p>
+                @if (Model.HeroiCansado)
+                {
+                    <img src="~/images/heroi-cansado.gif" class="cansado" />
+                }
+                <img src="@Model.SkinDaClasse" class="classe" />
+
+                <form asp-action="AreaDeJogo" method="post">
+                    <div class="row">
+                        <input type="hidden" name="id" value="@Model.Id">
+                        <button type="submit" name="button" value="Desistir" class="botaoMinecraft controlos desistir">DESISTIR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+
+            <div>
+
+                <img class="jogo" src="~/images/@Model.Zona" alt="Jogo" />
+
+                @if (Model.ChaveNoBolso)
+                {
+                    <img class="chave" src="~/images/chave1.png" alt="Chave Encontrada" />
+                }
+                else
+                {
+                    <img class="chave" src="~/images/chave1BW.png" alt="Chave Não Encontrada" /> <!--Chave a preto e branco quando o jogador ainda não a encontrou-->
+                }
+
+                <div class="centroJogo">
+                    @{
+                        if (Model.ItemEncontrado)
+                        {
+                            <img class="macaSurpresaEncontrada" src="~/images/maça-surpresa.gif" alt="Maça surpresa" />
+                        }
+                        if (Model.PocaoDeVidaEncontrada)
+                        {
+                            <img class="pocaoEncontrada" src="~/images/pocaoVida.png" alt="Pocão de vida" />
+                        }
+                        if (Model.MoedasDeOuroEncontradas > 0)
+                        {
+                            <img class="ouroEncontrado" src="~/images/ouro.gif" alt="Ouro" />
+                        }
+                        if (Model.ChaveNoChao)
+                        {
+                            <img class="chaveEncontrada" src="~/images/chave1.png" alt="Chave" />
+                        }
+                    }
+                </div>
+
+
+                @if (Model.Inimigo)
+                {
+                    <div class="centroJogo">
+
+                        <div class="statsinimigo">
+                            <img class="coracao" src="~/images/coracaoVida.png" alt="Coração" />
+                            <div class="pontosinimigo">@Model.PontosDeVidaInimigo</div>
+                        </div>
+                        <div class="statsinimigo">
+                            <img class="forca" src="~/images/forca.png" alt="Força" />
+                            <div class="pontosinimigo">@Model.PontosDeAtaqueInimigo</div>
+                        </div>
+                        <div class="statsinimigo">
+                            <img class="trevo" src="~/images/trevo.png" alt="Trevo" />
+                            <div class="pontosinimigo">@Model.PontosDeSorteInimigo</div>
+                        </div>
+
+                        <img class="centroJogo monstro" src="~/images/monstro.png" alt="Inimigo" />
+                    </div>
+                }
+
+                @{
+                    if (Model.DanoSofrido != 0)
+                    {
+                        @:<p class="danoRecebido">-@Model.DanoSofrido</p>
+                    }
+                    if (Model.ItemEfeitoVida > 0)
+                    {
+                        @:<p class="efeitoVida">+@Model.ItemEfeitoVida</p>
+                    }
+
+                    if (Model.ItemEfeitoForca > 0)
+                    {
+                        @:<p class="efeitoForca">+@Model.ItemEfeitoForca</p>
+                    }
+                    else if (Model.ItemEfeitoForca < 0)
+                    {
+                        @:<p class="efeitoForca negativo">@Model.ItemEfeitoForca</p>
+                    }
+
+                    if (Model.ItemEfeitoSorte < 0)
+                    {
+                        @:<p class="efeitoSorte negativo">@Model.ItemEfeitoSorte</p>
+                    }
+                    else if (Model.ItemEfeitoSorte > 0)
+                    {
+                        @:<p class="efeitoSorte">+@Model.ItemEfeitoSorte</p>
+                    }
+                    if (Model.MoedasDeOuroEncontradas > 0)
+                    {
+                        @:<p class="moedasRecebidas">+@Model.MoedasDeOuroEncontradas</p>
+                    }
+                    if (Model.PocaoDeVidaEncontrada)
+                    {
+                        @:<p class="pocaoRecebida">+1</p>
+                    }
+                }
+
+            </div>
+
+
+            <div class="caractesquerda">
+                <div class="stats">
+                    <img class="coracao" src="~/images/coracaoVida.png" alt="Coração" />
+                    <div class="pontos">@Model.PontosDeVida</div>
+                </div>
+
+                <div class="stats">
+                    <img class="forca" src="~/images/forca.png" alt="Força" />
+                    <div class="pontos">@Model.PontosDeForca</div>
+                </div>
+
+                <div class="stats">
+                    <img class="trevo" src="~/images/trevo.png" alt="Trevo" />
+                    <div class="pontos">@Model.PontosDeSorte</div>
+                </div>
+
+                <div class="stats">
+                    <img class="moedas" src="~/images/moeda.png" alt="Moedas" />
+                    <div class="pontos">@Model.MoedasDeOuro</div>
+                </div>
+
+                <div class="stats">
+                    <img class="pocao" src="~/images/pocaoVida.png" alt="Pocao" />
+                    <div class="pontos">@Model.PocoesDeVida/3</div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="row">
+                <img src="~/images/@Model.Minimapa" alt="Minimapa" />
+            </div>
+            <form asp-action="AreaDeJogo" method="post">
+
+                @if (Model.PocoesDeVida >= 1 && Model.PontosDeVida < Model.VidaMaxima)
+                {
+                    <div class="row">
+                        <div class="acoes">
+                            <input type="hidden" name="id" value="@Model.Id">
+                            <button type="submit" name="button" value="Poção" class="botaoMinecraft controlos">POÇÃO</button>
+                        </div>
+                    </div>
+                }
+                <div class="row">
+                    <div class="acoes">
+                        @if (Model.Inimigo)
+                        {
+                            <input type="hidden" name="id" value="@Model.Id">
+                            <button type="submit" hidden="" name="button" value="Fugir" class="botaoMinecraft controlos">FUGIR</button>
+                            <input type="hidden" name="id" value="@Model.Id">
+                            <button type="submit" name="button" value="Atacar" class="botaoMinecraft controlos">ATACAR</button>
+                        }
+                        else
+                        {
+                            @if (Model.Posicao == 7 && Model.ChaveNoBolso == false) { }
+                            else
+                            {
+                                <input type="hidden" name="id" value="@Model.Id">
+                                <button type="submit" name="button" value="Avançar" class="botaoMinecraft controlos">AVANÇAR</button>
+                            }
+
+
+                            @if (Model.Posicao > 1)
+                            {
+                                <input type="hidden" name="id" value="@Model.Id">
+                                <button type="submit" name="button" value="Recuar" class="botaoMinecraft controlos">RECUAR</button>
+                            }
+                            @if (Model.AreaExaminada[Model.Posicao - 1] == false)
+                            {
+                                <input type="hidden" name="id" value="@Model.Id">
+                                <button type="submit" name="button" value="Examinar" class="botaoMinecraft controlos">EXAMINAR</button>
+                            }
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+

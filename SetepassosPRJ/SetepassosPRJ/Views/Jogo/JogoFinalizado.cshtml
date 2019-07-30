@@ -1,0 +1,59 @@
+﻿@model Tentativa
+@{
+    ViewData["Title"] = "Jogo Finalizado";
+}
+
+<h1 class="text-center">Game Over</h1>
+@if (Model.Resultado != Result.SuccessVictory)
+{
+    @: <h2>Não consegiu vencer o jogo, tente outra vez!</h2>
+}
+
+<table class="table table-condensed">
+    <tr>
+        <th>ID</th>
+        <th>NickName</th>
+        <th>Pontos</th>
+        <th>Resultado Final do Jogo</th>
+        <th>Chave encontrada?</th>
+        <th>Inimigos Derrotados</th>
+        <th>Fugas do Inimigo</th>
+        <th>Investigação da area</th>
+        <th>Nº de Itens Encontrados</th>
+        <th>Poções Usadas/Totais</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Nickname</td>
+        <td>@Model.MoedasDeOuro</td>
+        <td>
+            @if (Model.Resultado == Result.SuccessVictory)
+            {
+                @:<p>Vitoria</p>
+            }
+            else
+            {
+                @:<p>Derrota</p>
+            }
+        </td>
+        <td>
+            @if (Model.ChaveNoBolso)
+            {
+                @:<p>Sim</p>
+            }
+            else
+            {
+                @:<p>Não</p>
+            }
+        </td>
+        <td>@Model.InimigosDerrotados</td>
+        <td>@Model.InimigosFintados</td>
+        <td>@Model.ContadorPesquisas</td>
+        <td>@Model.ContadorItensEncontrados</td>
+        <td>@Model.PocoesUsadas/@Model.PocoesTotais</td> @*totais ainda não estão a funcionar*@
+    </tr>
+</table>
+
+
+<a asp-action="Hiscores" asp-controller="Home" class="botaoMinecraft">HISCORES</a>
+<a asp-action="Index" asp-controller="Jogo" class="botaoMinecraft">NOVO JOGO</a>

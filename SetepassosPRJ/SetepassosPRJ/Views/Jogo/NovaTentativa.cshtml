@@ -1,0 +1,73 @@
+﻿@model SetepassosPRJ.Models.Tentativa
+@{
+    ViewData["Title"] = "Escolha da Personagem";
+}
+<form method="post" asp-action="NovaTentativaAsync">
+    <div asp-validation-summary="All"></div>
+    <h1 class="contorno">Escolha o seu herói</h1>
+
+    <div class="form-group">
+        <label>
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <br />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <br />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <br />
+            <input type="radio" name="classe" value="B" checked="checked" />
+            <img class="heroiOpaco" src="~/images/skinpereira.png" alt="Skin Do Pereira" />
+
+        </label>
+
+        <label>
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <br />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <br />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <br />
+            <input type="radio" name="classe" value="S" />
+            <img class="heroiOpaco" src="~/images/skinpedro.png" alt="Skin do Pedro" />
+        </label>
+
+        <label>
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <img src="~/images/coracaoVida.png" class="atributos" alt="Coracao" />
+            <br />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <img src="~/images/forca.png" class="atributos" alt="Forca" />
+            <br />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <img src="~/images/trevo.png" class="atributos" alt="Trevo" />
+            <br />
+            <input type="radio" name="classe" value="W" />
+            <img class="heroiOpaco" src="~/images/skintiago.png" alt="Skin Do Tiago" />
+        </label>
+        <br />
+
+        <label asp-for="Nickname">Nickname:</label>
+        <input asp-for="Nickname" class="textoPreto" />
+
+
+        <button type="submit" class="botaoMinecraft">NOVO JOGO</button>
+    </div>
+    <br />
+
+</form>
+
+<a asp-action="Index" class="botaoMinecraft">VOLTAR</a>

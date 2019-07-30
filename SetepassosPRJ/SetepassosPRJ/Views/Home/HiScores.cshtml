@@ -1,0 +1,76 @@
+﻿@model List<ModeloDeHiscores>
+@{
+    ViewData["Title"] = "HiScores";
+
+}
+
+<h2>HiScores</h2>
+<!--Isto vai ser fazer com a lista do repositório e com um foreach que acrescenta linhas à tabela-->
+
+@if (Model.Count == 0)
+{
+    @:<p>Sem Jogos Ainda! Seja o primeiro, carrregue em "NOVO JOGO"</p>
+    <a asp-action="Index" asp-controller="Jogo" class="botaoMinecraft">NOVO JOGO</a>
+}
+else
+{
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th>Lugar</th>
+                <th>NickName</th>
+                <th>Pontos</th>
+                <th>Resultado Final do Jogo</th>
+                <th>Chave encontrada?</th>
+                <th>Inimigos Derrotados</th>
+                <th>Fugas do Inimigo</th>
+                <th>Investigação da area</th>
+                <th>Nº de Itens Encontrados</th>
+                <th>Poções Usadas/Totais</th>
+            </tr>
+        </thead>
+
+        @{ int posicao = 1;
+            foreach (ModeloDeHiscores hiscores in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@posicao</td>
+                        <td>@hiscores.Nickname</td>
+                        <td>@hiscores.MoedasDeOuro</td>
+                        <td>
+                            @if (hiscores.ResultadoFinal == Result.SuccessVictory)
+                            {
+                                @:<p>Vitoria</p>
+                            }
+                            else
+                            {
+                                @:<p>Derrota</p>
+                            }
+                        </td>
+                        <td>
+                            @if (hiscores.ChaveEncontrada)
+                            {
+                                @:<p>Sim</p>
+                            }
+                            else
+                            {
+                                @:<p>Não</p>
+                            }
+                        </td>
+                        <td>@hiscores.InimigosDerrotados</td>
+                        <td>@hiscores.FugasDoInimigo</td>
+                        <td>@hiscores.InvestigacaoDaArea</td>
+                        <td>@hiscores.NumeroDeItensEncontrados</td>
+                        <td>@hiscores.PocoesUsadas/@hiscores.PocoesTotais</td> @*totais ainda não estão a funcionar*@
+                    </tr>
+
+                </tbody>
+                posicao++;
+            }
+        }
+
+    </table>
+}
+<a asp-action="Index" class="botaoMinecraft">VOLTAR</a>
+
